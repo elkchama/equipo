@@ -1,0 +1,128 @@
+/* ----- Tarjeta de login ----- */
+.login-card {
+    position: relative;       /* Para posicionar el botón Volver si lo deseas */
+    width: 400px;             /* Ajusta el ancho a tu gusto (px o %) */
+    background: #fff;         /* Fondo blanco */
+    border-radius: 8px;       /* Bordes redondeados */
+    padding: 30px 25px;       /* Espaciado interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;       /* Centra el texto y elementos dentro */
+  }
+
+  /* ----- Botón Volver ----- */
+  .btn-back {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #ff0000;          /* color del texto */
+    text-decoration: none;    /* sin subrayado */
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  /* Podrías cambiar el color al pasar el mouse */
+  .btn-back:hover {
+    color: #c10000;
+  }
+
+  /* ----- Logo ----- */
+  .logo img {
+    width: 80px;              /* Ajusta el tamaño */
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  /* ----- Título ----- */
+  .login-card h1 {
+    margin: 10px 0 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  /* ----- Formulario y grupos de entrada ----- */
+  .login-form {
+    display: flex;
+    flex-direction: column;   /* Las entradas una debajo de otra */
+    gap: 10px;                /* Espacio entre los campos */
+    margin-bottom: 15px;
+  }
+
+  /* Cada grupo de campo (label + input) */
+  .input-group {
+    text-align: left;         /* Para que el label e input queden alineados a la izquierda */
+  }
+
+  /* Label de cada campo */
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* Estilo del input */
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  /* ----- Enlace "Olvidé mi contraseña" ----- */
+  .forgot-link {
+    text-align: right;        /* Alinea a la derecha */
+    margin: 5px 0 15px;
+  }
+
+  .forgot-link a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+  }
+
+  .forgot-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* ----- Botón de Ingresar ----- */
+  .btn-login {
+    background-color: #ff4d4d; /* Color de fondo */
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+  }
+
+  .btn-login:hover {
+    background-color: #e60000;
+  }
+
+  /* ----- Enlace de Registro ----- */
+  .signup-link {
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
+
+  .signup-link a {
+    text-decoration: none;
+    color: #ff4d4d;
+    font-weight: bold;
+  }
+
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* ----- Ajustes responsivos ----- */
+  @media (max-width: 480px) {
+    .login-card {
+      width: 90%;
+      padding: 20px;
+    }
+  }
+
