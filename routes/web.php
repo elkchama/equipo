@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BusquedasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
+
+        /**
+         * busquedas Routes
+         */
+        Route::resource('busquedas', BusquedasController::class);
 
     });
 

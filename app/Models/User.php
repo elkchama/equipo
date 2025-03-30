@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -48,5 +49,13 @@ class User extends Authenticatable
     public function setPasswordAttribute(string $password){
         $this->attributes['password'] = bcrypt($password);
 
+    }
+
+    /**
+     * Define the relationship with the Busqueda model.
+     */
+    public function busquedas(): BelongsToMany
+    {
+        return $this->belongsToMany(Busqueda::class, 'user_busquedas', 'user_id', 'busqueda_id');
     }
 }
