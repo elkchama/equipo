@@ -9,6 +9,7 @@ use App\Http\Controllers\BusquedasController;
 use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\FidelizacionController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,14 @@ Route::get('/', function () {
 /**
  * Home Routes
  */
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home.busquedas');
+
+/**
+ * navegabilidad tiendas
+ */
+
+ Route::get('/tiendas', function () { return view('home.tiendas'); })->name('tiendas');
+
 
 /**
  * Rutas accesibles solo para invitados (usuarios no autenticados)
@@ -65,4 +73,3 @@ Route::middleware(['auth'])->group(function () {
  * Rutas accesibles para todos los usuarios
  */
 Route::resource('busquedas', BusquedasController::class);
-Route::resource('tiendas', TiendaController::class);

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre'); // Nombre de la tienda
             $table->text('descripcion')->nullable();
             $table->string('url')->nullable(); // URL de la tienda
-            $table->boolean('es_aliada')->default(false)->after('url'); // Indica si la tienda es aliada
+            $table->boolean('es_aliada')->default(false); // Indica si la tienda es aliada
             $table->timestamps();
         });
     }

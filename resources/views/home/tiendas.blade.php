@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tiendas de Colombia</title>
-  <!-- Tus hojas de estilo -->
   <link rel="stylesheet" href="/assets/css/tienda.css">
   <link rel="stylesheet" href="tiendas.css">
 
-  <!-- Ejemplo de estilos para resaltar la tienda aliada -->
   <style>
     .badge-aliada {
       background-color: gold;
@@ -26,12 +24,10 @@
   <header class="header" id="mainHeader">
     <div class="container">
       <nav class="navbar">
-        <!-- Logo y marca -->
         <a href="dashboard.html" class="navbar-brand">
-          <img src="/logo.png" alt="CONFER Logo">
+          <img src="img/logo.png" alt="CONFER Logo">
           <span>CONFER</span>
         </a>
-        <!-- Contenedor de navegación y búsqueda -->
         <div class="navbar-collapse">
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="nosotros.html">Productos</a></li>
@@ -51,7 +47,7 @@
               </button>
             </div>
             <a href="login.html" class="login-button">
-              <img src="/user-avatar.png" alt="Usuario" class="user-avatar">
+              <img src="img/user.png" alt="Usuario" class="user-avatar">
             </a>
           </div>
         </div>
@@ -74,61 +70,60 @@
           'nombre' => 'Éxito',
           'descripcion' => 'Una de las cadenas de tiendas más grandes del país, ofrece productos de todo tipo.',
           'url' => 'https://www.exito.com',
-          'es_aliada' => true
+          'es_aliada' => true,
+          'imagen' => 'img/exito.jpg'
         ],
         [
           'nombre' => 'Falabella',
           'descripcion' => 'Retailer reconocido con una amplia gama de productos para el hogar, moda y tecnología.',
           'url' => 'https://www.falabella.com',
-          'es_aliada' => false
+          'es_aliada' => false,
+          'imagen' => 'img/falabella.jpg'
         ],
         [
           'nombre' => 'Mercado Libre',
           'descripcion' => 'Plataforma líder de comercio electrónico en Latinoamérica, con millones de productos.',
           'url' => 'https://www.mercadolibre.com.co',
-          'es_aliada' => false
+          'es_aliada' => false,
+          'imagen' => 'img/mercado.jpg'
         ],
         [
           'nombre' => 'Linio',
           'descripcion' => 'Popular plataforma de e-commerce que ofrece tecnología, moda y más.',
           'url' => 'https://www.linio.com.co',
-          'es_aliada' => false
+          'es_aliada' => false,
+          'imagen' => 'img/linio.jpg'
         ],
         [
           'nombre' => 'Alkosto',
           'descripcion' => 'Gran variedad de productos tecnológicos, electrodomésticos y más, a precios competitivos.',
           'url' => 'https://www.alkosto.com',
-          'es_aliada' => true
+          'es_aliada' => true,
+          'imagen' => 'img/alkosto.png'
         ],
         [
           'nombre' => 'Ktronix',
           'descripcion' => 'Especializada en tecnología y electrónica, con amplia selección de gadgets y dispositivos.',
           'url' => 'https://www.ktronix.com',
-          'es_aliada' => false
+          'es_aliada' => false,
+          'imagen' => 'img/ktronix.jpg'
         ],
         [
           'nombre' => 'Homecenter',
           'descripcion' => 'Todo para el hogar y la construcción, con ofertas en muebles, herramientas y decoración.',
           'url' => 'https://www.homecenter.com.co',
-          'es_aliada' => false
+          'es_aliada' => false,
+          'imagen' => 'img/homecenter.png'
         ]
       ];
 
       // Verificamos si tenemos tiendas
       if (!empty($tiendas)) {
         foreach ($tiendas as $tienda) {
-          // Determinamos la imagen a mostrar (puedes cambiar la ruta según tu organización de archivos)
-          // Si no tienes imágenes para cada tienda, usa una genérica.
-          $nombreMinuscula = strtolower($tienda['nombre']);
-          $rutaImagen = "/vista/img/{$nombreMinuscula}.jpg";
-          // En caso de no existir la imagen, podrías manejar una imagen por defecto.
-
           // Generamos el HTML para cada tienda
           echo '<a href="'.htmlspecialchars($tienda['url']).'" class="store-card" target="_blank">';
-          echo '<img src="'.htmlspecialchars($rutaImagen).'" alt="Logo '.htmlspecialchars($tienda['nombre']).'">';
-          // Mostramos el nombre
+          echo '<img src="'.htmlspecialchars($tienda['imagen']).'" alt="Logo '.htmlspecialchars($tienda['nombre']).'">';
           echo '<h2>'.htmlspecialchars($tienda['nombre']);
-          // Si es aliada, agregamos un badge para resaltarla
           if ($tienda['es_aliada']) {
             echo '<span class="badge-aliada">Aliada</span>';
           }
