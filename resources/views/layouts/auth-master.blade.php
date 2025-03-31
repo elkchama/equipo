@@ -19,6 +19,9 @@
 
     <!-- css login  -->
     <link href="{!! url('assets/css/login.css') !!}" rel="stylesheet">
+
+    <!-- css busqueda -->
+    <link href="{!! url('assets/css/busqueda.css') !!}" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
