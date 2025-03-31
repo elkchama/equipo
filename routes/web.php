@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BusquedasController;
+use App\Http\Controllers\TiendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
          */
         Route::get('/login', 'LoginController@show')->name('login.show'); // REGRESO A "login"
         Route::post('/login', 'LoginController@login')->name('login.perform');
+
     });
 
     Route::group(['middleware' => ['auth']], function() {
