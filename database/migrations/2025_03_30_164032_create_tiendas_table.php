@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tiendas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre'); // Nombre de la tienda
+            $table->bigIncrements('id');
+            $table->string('nombre');
             $table->text('descripcion')->nullable();
-            $table->string('url')->nullable(); // URL de la tienda
-            $table->boolean('es_aliada')->default(false)->after('url'); // Indica si la tienda es aliada
+            $table->string('url')->nullable();
+            $table->boolean('es_aliada')->default(0);
             $table->timestamps();
         });
+        
     }
 
     /**

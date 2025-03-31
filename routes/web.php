@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BusquedasController;
 use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\ComparacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
         });
         
     });
+
+    
+    Route::get('/comparacion', [ComparacionController::class, 'index'])->name('comparacion.index');
+
+
+Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comparar.precios');
+
 });
