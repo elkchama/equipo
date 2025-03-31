@@ -20,4 +20,9 @@ class Busqueda extends Model
     {
         return $this->belongsToMany(User::class, 'busqueda_users', 'busqueda_id', 'user_id');
     }
+
+    public function tiendas()
+    {
+        return $this->belongsToMany(Tienda::class, 'busqueda_tiendas', 'busqueda_id', 'tienda_id');
+    }
 }

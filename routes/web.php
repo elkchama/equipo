@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BusquedasController;
+use App\Http\Controllers\TiendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * busquedas Routes
          */
         Route::resource('busquedas', BusquedasController::class);
+
+        /**
+         * tiendas Routes
+         */
+
+         Route::resource('tiendas', TiendaController::class);
 
     });
 
