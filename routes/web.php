@@ -14,15 +14,12 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-
-/* Route::get('/register', [RegisterController::class, 'show']);
-Route::post('/action-register', [RegisterController::class, 'register']); */
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'App\Http\Controllers'], function()
-{
+Route::group(['namespace' => 'App\Http\Controllers'], function() {
+
     /**
      * Home Routes
      */
@@ -38,9 +35,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Login Routes
          */
-        Route::get('/login', 'LoginController@show')->name('login.show');
+        Route::get('/login', 'LoginController@show')->name('login.show'); // REGRESO A "login"
         Route::post('/login', 'LoginController@login')->name('login.perform');
-
     });
 
     Route::group(['middleware' => ['auth']], function() {
@@ -48,5 +44,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Logout Routes
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+
+        /**
+         * Fidelizacion Routes
+         */
+        Route::group(['middleware' => ['auth']], function() {
+            Route::resource('fidelizacion', 'FidelizacionController')->except(['show']);
+        });
+        
     });
 });
