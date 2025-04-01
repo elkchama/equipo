@@ -6,7 +6,7 @@
 
         <!-- Puedes mantener la imagen y el título centrados -->
         <div class="text-center mb-4">
-            <img class="mb-2" src="{!! url('images/bootstrap-logo.svg') !!}" alt="Logo" width="72" height="57">
+            <img class="mb-2" src="{!! url('img/logo.png') !!}" alt="Logo" width="72" height="57">
             <h1 class="h3 fw-normal">Registro</h1>
         </div>
 

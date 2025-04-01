@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
     public function show() {
         if (Auth::check()) {
-            return redirect()->route('home.index');
+            return redirect()->route('home.busquedas');
         }
         return view('auth.login');
     }
@@ -22,6 +22,11 @@ class LoginController extends Controller
         }
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-        return redirect()->route('home.index');
+        
+        if (Auth::check()) {
+            return redirect()->route('home.busquedas');
+        }
+        return view('auth.login');
+
     }
 }

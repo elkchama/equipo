@@ -13,7 +13,7 @@ class BusquedasController extends Controller
     public function index()
     {
         $busquedas = Busqueda::with('tiendas')->get(); // Carga las relaciones
-        return view('auth.busquedas', compact('busquedas'));
+        return view('home.busquedas', compact('busquedas'));
     }
 
     /**

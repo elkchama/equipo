@@ -25,7 +25,7 @@
       <nav class="navbar">
         <!-- Logo y marca -->
         <a href="dashboard.html" class="navbar-brand">
-          <img src="/logo.png" alt="CONFER Logo">
+          <img src="img/logo.png" alt="CONFER Logo">
           <span>CONFER</span>
         </a>
         <!-- Contenedor de navegación y búsqueda -->
@@ -33,7 +33,7 @@
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="nosotros.html">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="error500.html">Búsquedas recientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="tiendas.html">Tiendas</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
 
           </ul>
           <div class="right-section">
@@ -47,7 +47,10 @@
               </button>
             </div>
             <a href="login.html" class="login-button">
-              <img src="/user-avatar.png" alt="Usuario" class="user-avatar">
+              <img src="img/user.png" alt="Usuario" class="user-avatar">
+              <div class="text-end px-2">
+                <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">salir</a>
+              </div>
             </a>
           </div>
         </div>
@@ -64,19 +67,19 @@
         <a href="error404.html" class="btn btn-primary">¡COMPARA!</a>
         <div class="image-gallery">
           <a href="#samsung" class="gallery-btn">
-            <img src="/celilares.jpg" alt="SAMSUNG">
+            <img src="img/celilares.jpg" alt="SAMSUNG">
             <h2>CELULARES</h2>
           </a>
           <a href="#iphone" class="gallery-btn">
-            <img src="/consolas.jpg" alt="IPHONE">
+            <img src="img/consolas.jpg" alt="IPHONE">
             <h2>CONSOLAS</h2>
           </a>
           <a href="#xiaomi" class="gallery-btn">
-            <img src="/audifonos.jpg" alt="XIAOMI">
+            <img src="img/audifonos.jpg" alt="XIAOMI">
             <h2>AUDIFONOS</h2>
           </a>
           <a href="#motorola" class="gallery-btn">
-            <img src="/tv.jpg" alt="MOTOROLA">
+            <img src="img/tv.jpg" alt="MOTOROLA">
             <h2>TELEVISORES</h2>
           </a>
         </div>

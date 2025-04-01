@@ -3,14 +3,10 @@
 @section('content')
 <div class="login-container">
   <div class="login-card">
-    <!-- Botón de Volver -->
-    <a href="{{ url('/') }}" class="btn-back">
-      &larr; Volver
-    </a>
 
     <!-- Logo -->
     <div class="logo">
-      <img src="{!! url('vista/img/logo.png') !!}" alt="CONFER Logo">
+      <img src="{!! url('img/logo.png') !!}" alt="CONFER Logo">
     </div>
 
     <!-- Título -->
