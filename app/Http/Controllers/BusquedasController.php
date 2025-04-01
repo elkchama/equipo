@@ -62,6 +62,16 @@ class BusquedasController extends Controller
     }
 
     /**
+    * Método para buscar tiendas por nombre.
+    */
+    public function search(Request $request)
+    {
+        $query = $request->input('query'); // Capturamos el término de búsqueda
+        $tiendas = \App\Models\Tienda::where('nombre', 'LIKE', "%{$query}%")->get(); // Buscamos coincidencias en el nombre
+        return view('busquedas.index', compact('tiendas', 'query')); // Enviamos los resultados a la vista
+    }
+
+    /**
      * Muestra el formulario para editar una búsqueda.
      */
     public function edit(Busqueda $busqueda)

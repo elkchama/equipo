@@ -46,6 +46,7 @@
                 </svg>
               </button>
             </div>
+
             <a href="login.html" class="login-button">
               <img src="img/user.png" alt="Usuario" class="user-avatar">
               <div class="text-end px-2">
