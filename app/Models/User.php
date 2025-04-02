@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Roles; // Import the Role model
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'users'; // Specify the table name
     /**
      * The attributes that are mass assignable.
      *
@@ -25,6 +27,7 @@ class User extends Authenticatable
         'gender',     // User's gender
         'email',      // User's email address
         'password',   // Encrypted password
+        'id_rol',     // Role ID (foreign key)
     ];
 
     /**
@@ -55,6 +58,11 @@ class User extends Authenticatable
     public function setPasswordAttribute(string $password)
     {
         $this->attributes['password'] = bcrypt($password); // Encrypt the password before saving
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Roles::class, 'id_rol');
     }
 
     /**

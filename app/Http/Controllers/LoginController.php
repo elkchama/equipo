@@ -9,24 +9,35 @@ class LoginController extends Controller
 {
     public function show() {
         if (Auth::check()) {
-            return redirect()->route('home.busquedas');
+            return match (Auth::user()->id_rol) {
+                1 => redirect()->route('admin.dashboard'),
+                2 => redirect()->route('home.busquedas'),
+
+            };
         }
         return view('auth.login');
     }
 
-    public function login(LoginRequest $request) {
+    public function login(LoginRequest $request)
+    {
         $credentials = $request->getCredentials();
+
         if (!Auth::validate($credentials)) {
-            return redirect()->route('login')
-                ->withErrors(['auth' => 'Credenciales incorrectas.']);
+            return redirect()->route('login.show')
+                ->withErrors(trans('auth.failed'));
         }
+
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-        
-        if (Auth::check()) {
-            return redirect()->route('home.busquedas');
-        }
-        return view('auth.login');
 
+        return $this->authenticated($request, $user);
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        return match ($user->id_rol) {
+            1 => redirect()->route('admin.dashboard'),
+            2 => redirect()->route('home.busquedas'),
+        };
     }
 }

@@ -1,3 +1,4 @@
+// roles
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -17,14 +18,9 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
         });
-
-        // Crear los roles predeterminados
-        DB::table('roles')->insert([
-            ['nombre' => 'Administrador'],
-            ['nombre' => 'Usuario'],
-        ]);
     }
 
     /**

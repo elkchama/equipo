@@ -16,6 +16,12 @@ class RegisterRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation() {
+        $this->merge([ // método  modifica los datos de la solicitud antes de que se validen
+            'id_rol' => 2 // Asignamos el rol "bajo" automáticamente
+
+        ]);
+        }
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,7 +36,8 @@ class RegisterRequest extends FormRequest
             'phone' => 'required|numeric',
             'gender' => 'required',
             'password' => 'required|min:3',
-            'password_confirmation' => 'required|same:password'
+            'password_confirmation' => 'required|same:password',
+            'id_rol' => 'exists:roles,id',
             /* 'name' => 'required|min:3',
             'email' => 'required|email:rfc,dns|unique:users,email',
             'username' => 'required|unique:users,username',
