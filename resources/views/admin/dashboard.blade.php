@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - CONFER</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="vista/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="#">Usuarios</a></li>
+        <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
         <li><a href="#">Estadísticas</a></li>
         <li><a href="#">Configuración</a></li>
         <li><a href="login.html">Cerrar sesión</a></li>

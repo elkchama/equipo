@@ -9,6 +9,8 @@ use App\Http\Controllers\BusquedasController;
 use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\ComparacionController;
 use App\Http\Controllers\FidelizacionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +77,13 @@ Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comp
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
+
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', UserController::class)->except(['show']);
+});
+
+/**
+ * ruta de productos
+ */
+Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');

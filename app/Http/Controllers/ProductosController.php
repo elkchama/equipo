@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\productos;
 use App\Models\Tienda;
 
-class ComparacionController extends Controller
+class ProductosController extends Controller
 {
     // Muestra la lista de productos
     public function index()
     {
-        $productos = Producto::with('tienda')->get();
-        return view('productos.index', compact('productos'));
+        $productos = productos::with('tienda')->get();
+        return view('home.productos', compact('productos'));
     }
 
     // Función para comparar precios
@@ -21,7 +22,7 @@ class ComparacionController extends Controller
         $productoId = $request->input('producto_id');
 
         // Buscar el producto y sus precios en diferentes tiendas
-        $producto = Producto::where('id', $productoId)->with('tienda')->get();
+        $producto = productos::where('id', $productoId)->with('tienda')->get();
 
         // Buscar el precio más bajo
         $mejorPrecio = $producto->min('precio');
