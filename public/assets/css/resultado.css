@@ -1,0 +1,325 @@
+/* HEADER con degradado suave */
+.header {
+    background: linear-gradient(90deg, #577ae4 0%, #ff5858 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  .header.scrolled {
+    background: linear-gradient(90deg, #577ae4 0%, #ff5858 100%);
+  }
+
+  /* Barra de navegación */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px; /* Ajusta la altura si lo deseas */
+    padding: 0 20px;
+  }
+
+  /* Logo y nombre de marca */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .navbar-brand img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-brand img:hover {
+    transform: scale(1.1);
+  }
+
+  .navbar-brand span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff; /* Color de marca */
+    white-space: nowrap;
+  }
+
+  /* Contenedor de navegación */
+  .navbar-collapse {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Lista de navegación */
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item .nav-link {
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-item .nav-link:hover {
+    color: #ddd;
+    transform: translateY(-2px);
+  }
+
+  .nav-item .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s;
+  }
+
+  .nav-item .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Sección derecha (buscador + login) */
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Ajusta el espacio entre el buscador y el avatar */
+  }
+
+  /* Buscador */
+  .search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    width: 180px; /* Ajusta el ancho */
+    font-size: 0.9rem;
+  }
+
+  .search-input::placeholder {
+    color: #888;
+  }
+
+  .search-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-icon {
+    width: 16px;
+    height: 16px;
+    color: #333;
+  }
+
+  /* Avatar / Login */
+  .login-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
+    background-color: #666; /* Por si no carga la imagen */
+  }
+
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-wrap: wrap;
+      height: auto;
+      padding: 10px;
+    }
+
+    .navbar-collapse {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .search {
+      margin-top: 10px;
+    }
+  }
+
+/* Estilo general */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    margin: 0;
+    padding: 80px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+td {
+    background-color: #ffffff;
+    color: #555;
+}
+
+tr:nth-child(even) td {
+    background-color: #f7f7f7;
+}
+
+tr:hover td {
+    background-color: #e0f7fa;
+}
+
+th:first-child, td:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+th:last-child, td:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+td:last-child {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.empty-row {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+/* Estilo del botón "Regresar" */
+.btn-secondary {
+    display: inline-block; /* Cambiado de flex a inline-block */
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #6c757d; /* Gris oscuro */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: right;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 20px 10px;
+}
+
+/* Contenedor para alinear el botón a la izquierda */
+.btn-container {
+    text-align: left; /* Alineación a la izquierda */
+    margin-left: 20px; /* Espacio desde el borde izquierdo */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Color más oscuro en hover */
+    transform: scale(1.05);
+}
+
+.btn-secondary:active {
+    background-color: #545b62;
+    transform: scale(0.95);
+}
+
+/* Estilo del botón "Volver al Inicio" */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff; /* Azul */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 20px 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Azul más oscuro en hover */
+    transform: scale(1.05);
+}
+
+.btn-primary:active {
+    background-color: #004085;
+    transform: scale(0.95);
+}
+
+/* Responsividad */
+@media screen and (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-secondary, .btn-primary {
+        width: 90%;
+        font-size: 14px;
+    }
+}

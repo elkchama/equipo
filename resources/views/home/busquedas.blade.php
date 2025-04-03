@@ -34,6 +34,7 @@
             <li class="nav-item"><a class="nav-link" href="nosotros.html">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="error500.html">Búsquedas recientes</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
+            
 
           </ul>
           <div class="right-section">
@@ -44,6 +45,9 @@
                   <circle cx="11" cy="11" r="8"></circle>
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
+                <form method="GET" action="{{ route('') }}">
+    <input type="text" name="buscar" placeholder="Busca el producto" value="{{ request('buscar') }}">
+
               </button>
             </div>
 
@@ -65,7 +69,8 @@
       <div class="container">
         <h1>Encuentra los Mejores Precios con CONFER</h1>
         <p>Comparador de precios rápido, confiable y gratuito.</p>
-        <a href="error404.html" class="btn btn-primary">¡COMPARA!</a>
+        <a href="{{ route('comparacion') }}" class="btn-primary">¡COMPARA!</a>
+
         <div class="image-gallery">
           <a href="#samsung" class="gallery-btn">
             <img src="img/celilares.jpg" alt="SAMSUNG">

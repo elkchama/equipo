@@ -1,23 +1,29 @@
-@extends('layouts.app')
+<!DOCTYPE html>
 
-@section('content')
-<div class="container">
-    <h1>Lista de Productos</h1>
+<html lang="es">
+<!-- Enlace al CSS desde una vista Blade -->
+<head>
+    <meta charset="UTF-8">
+    <title>Comparación de Precios</title>
+    <link rel="stylesheet" href="/assets/css/comparacion.css">
+</head>
 
-    @foreach($productos as $producto)
-        <div class="producto">
-            <h2>{{ $producto->nombre }}</h2>
-            <p>{{ $producto->descripcion }}</p>
-            <p>Precio: ${{ $producto->precio }}</p>
-            <p>Tienda: {{ $producto->tienda->nombre }}</p>
+<body>
+    <h1>Comparación de Precios</h1>
 
-            <form action="{{ route('comparar.precios') }}" method="POST">
-                @csrf
-                <input type="hidden" name="producto_id" value="{{ $producto->id }}">
-                <button type="submit" class="btn btn-warning">Comparar precios</button>
-            </form>
-        </div>
-        <hr>
-    @endforeach
-</div>
-@endsection
+    <form action="{{ route('comparar') }}" method="POST">
+        @csrf
+        <label for="producto_id">Selecciona un producto:</label>
+        <select name="producto_id" id="producto_id" required>
+            @foreach ($productos as $producto)
+                <option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
+            @endforeach
+        </select>
+        <button type="submit">Comparar</button>
+    </form>
+
+    @if(session('error'))
+        <p style="color: red;">{{ session('error') }}</p>
+    @endif
+</body>
+</html>

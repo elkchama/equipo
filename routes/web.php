@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     RegisterController, LoginController, HomeController, LogoutController,
     BusquedasController, TiendaController, ComparacionController,
-    FidelizacionController, UserController, ProductosController
+    FidelizacionController, UserController, ProductosController, SearchController
 };
 
 /*
@@ -56,8 +56,10 @@ Route::resource('busquedas', BusquedasController::class);
 /**
  * Comparación de precios
  */
-Route::get('/comparacion', [ComparacionController::class, 'index'])->name('comparacion.index');
-Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comparar.precios');
+Route::get('/comparacion', [ComparacionController::class, 'index'])->name('comparacion');
+
+// Ruta para realizar la comparación
+Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comparar');
 
 /**
  * Dashboard del Administrador
@@ -74,3 +76,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('tiendas', TiendaController::class)->except(['show']);
     Route::resource('productos', ProductosController::class)->except(['show']);
 });
+
+/*ruta search*/
+Route::resource('busquedas', SearchController::class);
