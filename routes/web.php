@@ -1,46 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\BusquedasController;
-use App\Http\Controllers\TiendaController;
-use App\Http\Controllers\ComparacionController;
-use App\Http\Controllers\FidelizacionController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\{
+    RegisterController, LoginController, HomeController, LogoutController,
+    BusquedasController, TiendaController, ComparacionController,
+    FidelizacionController, UserController, ProductosController
+};
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Aquí es donde puedes registrar las rutas web para tu aplicación.
-| Estas rutas son cargadas por el RouteServiceProvider y están dentro
-| del grupo que contiene el middleware "web".
-|
 */
 
+// Página de bienvenida
 Route::get('/', function () {
     return view('welcome');
 });
 
 /**
- * Home Routes
+ * Rutas de Inicio
  */
 Route::get('/home', [HomeController::class, 'index'])->name('home.busquedas');
 
 /**
- * Navegabilidad tiendas
+ * Navegabilidad pública
  */
-Route::get('/tiendas', function () {
-    return view('home.tiendas');
-})->name('tiendas');
+Route::get('/tiendas', [TiendaController::class, 'publicIndex'])->name('tiendas');
+Route::get('/productos', [ProductosController::class, 'publicIndex'])->name('productos.index');
 
 /**
- * Rutas accesibles solo para invitados (usuarios no autenticados)
+ * Rutas accesibles solo para invitados
  */
 Route::middleware(['guest'])->group(function () {
     Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
@@ -55,12 +45,11 @@ Route::middleware(['guest'])->group(function () {
  */
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
-
     Route::resource('fidelizacion', FidelizacionController::class)->except(['show']);
 });
 
 /**
- * Rutas accesibles para todos los usuarios
+ * Búsquedas disponibles para todos los usuarios
  */
 Route::resource('busquedas', BusquedasController::class);
 
@@ -70,20 +59,18 @@ Route::resource('busquedas', BusquedasController::class);
 Route::get('/comparacion', [ComparacionController::class, 'index'])->name('comparacion.index');
 Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comparar.precios');
 
-
 /**
- * Dashboard
+ * Dashboard del Administrador
  */
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-
+/**
+ * Grupo de rutas protegidas para Administrador
+ */
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('users', UserController::class)->except(['show']);
+    Route::resource('tiendas', TiendaController::class)->except(['show']);
+    Route::resource('productos', ProductosController::class)->except(['show']);
 });
-
-/**
- * ruta de productos
- */
-Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');

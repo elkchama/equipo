@@ -20,7 +20,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre');
             $table->text('descripcion')->nullable();
             // Precio con 8 dígitos en total y 2 decimales
-            $table->decimal('precio', 8, 2);
+            $table->decimal('precio', 10, 2);
             $table->timestamps();
 
             // Definición de la clave foránea y acción en cascada

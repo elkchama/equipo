@@ -9,11 +9,78 @@ use App\Models\Tienda;
 
 class ProductosController extends Controller
 {
-    // Muestra la lista de productos
-    public function index()
+    public function publicIndex()
     {
         $productos = productos::with('tienda')->get();
         return view('home.productos', compact('productos'));
+    }
+
+    public function index()
+    {
+        $productos = productos::with('tienda')->get();
+        return view('admin.productos.index', compact('productos'));
+    }
+
+     /**
+     * Muestra el formulario para crear un nuevo producto.
+     */
+    public function create()
+    {
+        $tiendas = Tienda::all(); // Obtener todas las tiendas para asignarlas a un producto
+        return view('admin.productos.create', compact('tiendas'));
+    }
+
+      /**
+     * Almacena un nuevo producto en la base de datos.
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'precio' => 'required|numeric',
+            'tienda_id' => 'required|exists:tiendas,id'
+        ]);
+
+        productos::create($request->all());
+
+        return redirect()->route('admin.productos.index')->with('success', 'Producto creado correctamente.');
+    }
+
+     /**
+     * Muestra el formulario de edición de un producto.
+     */
+    public function edit(productos $producto)
+    {
+        $tiendas = Tienda::all();
+        return view('admin.productos.edit', compact('producto', 'tiendas'));
+    }
+
+       /**
+     * Actualiza un producto en la base de datos.
+     */
+    public function update(Request $request, productos $producto)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'precio' => 'required|numeric',
+            'tienda_id' => 'required|exists:tiendas,id'
+        ]);
+
+        $producto->update($request->all());
+
+        return redirect()->route('admin.productos.index')->with('success', 'Producto actualizado correctamente.');
+    }
+
+     /**
+     * Elimina un producto de la base de datos.
+     */
+    public function destroy(productos $producto)
+    {
+        $producto->delete();
+
+        return redirect()->route('admin.productos.index')->with('success', 'Producto eliminado correctamente.');
     }
 
     // Función para comparar precios

@@ -17,8 +17,8 @@
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
-        <li><a href="#">Estadísticas</a></li>
-        <li><a href="#">Configuración</a></li>
+        <li><a href="{{ route('admin.tiendas.index') }}">Tiendas</a></li>
+        <li><a href="{{ route('admin.productos.index')}}">Productos</a></li>
         <li><a href="login.html">Cerrar sesión</a></li>
       </ul>
     </nav>

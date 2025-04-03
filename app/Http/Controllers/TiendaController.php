@@ -10,18 +10,24 @@ class TiendaController extends Controller
     /**
      * Muestra un listado de las tiendas.
      */
-    public function index()
+    public function publicIndex()
 {
     $tiendas = Tienda::all();
-    return view('auth.tiendas', compact('tiendas'));
+    return view('home.tiendas', compact('tiendas'));
 }
+
+    public function index()
+    {
+        $tiendas = Tienda::all();
+        return view('admin.tiendas.index', compact('tiendas'));
+    }
 
     /**
      * Muestra el formulario para crear una nueva tienda.
      */
     public function create()
     {
-        return view('tiendas.create');
+        return view('admin.tiendas.create');
     }
 
     /**
@@ -54,7 +60,7 @@ class TiendaController extends Controller
      */
     public function edit(Tienda $tienda)
     {
-        return view('tiendas.edit', compact('tienda'));
+        return view('admin.tiendas.edit', compact('tienda'));
     }
 
     /**
