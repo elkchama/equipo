@@ -78,4 +78,3 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 });
 
 /*ruta search*/
-Route::resource('busquedas', SearchController::class);

@@ -13,7 +13,7 @@ class ComparacionController extends Controller
         // Obtener productos únicos por nombre usando groupBy
         $productos = DB::table('productos')
             ->select('nombre', DB::raw('MIN(id) as id')) // Tomar el primer ID para cada nombre
-            ->groupBy('nombre') // Agrupar por nombre para evitar duplicados
+            ->groupBy('nombre')
             ->get();
 
         // Enviar la lista de productos a la vista
@@ -25,11 +25,18 @@ class ComparacionController extends Controller
     {
         $productoId = $request->input('producto_id');
 
-        // Consulta para obtener precios por tienda del producto seleccionado
+        // Obtener el nombre del producto por su ID
+        $productoSeleccionado = DB::table('productos')->where('id', $productoId)->first();
+
+        if (!$productoSeleccionado) {
+            return redirect()->back()->with('error', 'Producto no encontrado.');
+        }
+
+        // Buscar todos los registros del producto (por nombre) en distintas tiendas
         $productos = DB::table('productos')
             ->join('tiendas', 'productos.tienda_id', '=', 'tiendas.id')
             ->select('productos.nombre as producto', 'tiendas.nombre as tienda', 'productos.precio')
-            ->where('productos.id', $productoId)
+            ->where('productos.nombre', $productoSeleccionado->nombre)
             ->orderBy('productos.precio', 'ASC')
             ->get();
 
@@ -37,12 +44,10 @@ class ComparacionController extends Controller
             return redirect()->back()->with('error', 'No se encontraron precios para este producto.');
         }
 
-        // Obtener el precio más bajo
-        $precioMasBajo = $productos->first()->precio;
-        $comparacion = $productos->filter(function ($producto) use ($precioMasBajo) {
-            return $producto->precio == $precioMasBajo;
-        });
+        // Obtener el precio más bajo entre todos los registros
+        $precioMasBajo = $productos->min('precio');
 
-        return view('home.comparacion.resultado', compact('comparacion'));
+        // Retornamos todos los registros y el precio más bajo a la vista
+        return view('home.comparacion.resultado', compact('productos', 'precioMasBajo'));
     }
 }
