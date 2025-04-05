@@ -43,7 +43,7 @@ class TiendaController extends Controller
 
         Tienda::create($request->only('nombre', 'descripcion', 'direccion'));
 
-        return redirect()->route('tiendas.index')
+        return redirect()->route('admin.tiendas.index')
                          ->with('success', 'Tienda creada correctamente.');
     }
 
@@ -76,7 +76,7 @@ class TiendaController extends Controller
 
         $tienda->update($request->only('nombre', 'descripcion', 'direccion'));
 
-        return redirect()->route('tiendas.index')
+        return redirect()->route('admin.tiendas.index')
                          ->with('success', 'Tienda actualizada correctamente.');
     }
 
@@ -87,7 +87,7 @@ class TiendaController extends Controller
     {
         $tienda->delete();
 
-        return redirect()->route('tiendas.index')
+        return redirect()->route('admin.tiendas.index')
                          ->with('success', 'Tienda eliminada correctamente.');
     }
 }

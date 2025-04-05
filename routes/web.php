@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     RegisterController, LoginController, HomeController, LogoutController,
     BusquedasController, TiendaController, ComparacionController,
-    FidelizacionController, UserController, ProductosController
+    FidelizacionController, UserController, ProductosController, DashboardController
 };
 
 /*
@@ -74,3 +74,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('tiendas', TiendaController::class)->except(['show']);
     Route::resource('productos', ProductosController::class)->except(['show']);
 });
+
+/**
+ * Rutas de dashboard
+ */
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

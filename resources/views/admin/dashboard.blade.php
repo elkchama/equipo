@@ -19,7 +19,7 @@
         <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
         <li><a href="{{ route('admin.tiendas.index') }}">Tiendas</a></li>
         <li><a href="{{ route('admin.productos.index')}}">Productos</a></li>
-        <li><a href="login.html">Cerrar sesión</a></li>
+        <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">salir</a>
       </ul>
     </nav>
   </header>

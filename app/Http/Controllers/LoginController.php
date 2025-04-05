@@ -36,7 +36,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         return match ($user->id_rol) {
-            1 => redirect()->route('admin.dashboard'),
+            1 => redirect()->route('dashboard'),
             2 => redirect()->route('home.busquedas'),
         };
     }

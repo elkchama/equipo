@@ -31,7 +31,7 @@
         <!-- Contenedor de navegación y búsqueda -->
         <div class="navbar-collapse">
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="nosotros.html">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('productos.index')}}">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="error500.html">Búsquedas recientes</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
 

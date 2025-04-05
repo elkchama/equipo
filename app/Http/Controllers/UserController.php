@@ -24,15 +24,19 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'username' => 'required|string|max:255|unique:users',
+            'phone' => 'required|string|max:20|unique:users',
+            'gender' => 'nullable|string',
             'password' => 'required|string|min:6',
-            'id_rol' => 'required|integer', // Asegurar que se defina un rol
+            'id_rol' => 'required|integer',
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
-            'password' => bcrypt($request->password),
+            'phone' => $request->phone,
+            'gender' => $request->gender,
+            'password' => $request->password, // se cifra automáticamente en el modelo
             'id_rol' => $request->id_rol,
         ]);
 
@@ -50,10 +54,20 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'username' => 'required|string|max:255|unique:users,username,' . $user->id,
+            'phone' => 'required|string|max:20|unique:users,phone,' . $user->id,
+            'gender' => 'nullable|string',
             'id_rol' => 'required|integer',
+            'password' => 'nullable|string|min:6',
         ]);
 
-        $user->update($request->all());
+        $data = $request->only(['name', 'email', 'username', 'phone', 'gender', 'id_rol']);
+
+        // Solo actualiza la contraseña si fue enviada
+        if ($request->filled('password')) {
+            $data['password'] = $request->password; // será encriptada por el modelo
+        }
+
+        $user->update($data);
 
         return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado correctamente');
     }

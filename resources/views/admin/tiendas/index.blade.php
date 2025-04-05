@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Dashboard</a>
     <h1 class="my-4">Lista de Tiendas</h1>
 
     <a href="{{ route('admin.tiendas.create') }}" class="btn btn-primary mb-3">Agregar Tienda</a>
