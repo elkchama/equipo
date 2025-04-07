@@ -65,7 +65,7 @@
       <div class="container">
         <h1>Encuentra los Mejores Precios con CONFER</h1>
         <p>Comparador de precios rápido, confiable y gratuito.</p>
-        <a href="error404.html" class="btn btn-primary">¡COMPARA!</a>
+        <a  href="{{ route('comparacion') }}" class="btn btn-primary">¡COMPARA!</a>
         <div class="image-gallery">
           <a href="#samsung" class="gallery-btn">
             <img src="img/celilares.jpg" alt="SAMSUNG">

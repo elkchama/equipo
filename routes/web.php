@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     RegisterController, LoginController, HomeController, LogoutController,
     BusquedasController, TiendaController, ComparacionController,
-    FidelizacionController, UserController, ProductosController, DashboardController
+    FidelizacionController, UserController, ProductosController, DashboardController,
+    SearchController
 };
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,15 +56,13 @@ Route::resource('busquedas', BusquedasController::class);
 /**
  * Comparación de precios
  */
-Route::get('/comparacion', [ComparacionController::class, 'index'])->name('comparacion.index');
-Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comparar.precios');
+Route::get('/comparacion', [ComparacionController::class, 'index'])->name('comparacion');
+Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comparar');
 
 /**
  * Dashboard del Administrador
  */
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 /**
  * Grupo de rutas protegidas para Administrador
@@ -75,7 +73,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('productos', ProductosController::class)->except(['show']);
 });
 
-/**
- * Rutas de dashboard
- */
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+/* Ruta search */
+Route::get('/buscar', [SearchController::class, 'index'])->name('search.buscar');
+
