@@ -18,7 +18,6 @@
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>URL</th>
-                <th>¿Es Aliada?</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -35,7 +34,6 @@
                             N/A
                         @endif
                     </td>
-                    <td>{{ $tienda->es_aliada ? 'Sí' : 'No' }}</td>
                     <td>
                         <a href="{{ route('admin.tiendas.edit', $tienda) }}" class="btn btn-warning btn-sm">Editar</a>
                         <form action="{{ route('admin.tiendas.destroy', $tienda) }}" method="POST" class="d-inline">

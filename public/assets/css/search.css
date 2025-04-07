@@ -1,0 +1,100 @@
+/*
+  1. Asegurar que el body ocupe todo el alto y
+     que el footer se ubique al final del contenido.
+*/
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ocupa todo el alto disponible */
+  }
+
+  /*
+    2. Usar flexbox en body para “empujar” el footer
+       al final de la página cuando el contenido es corto.
+  */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*
+    3. El main (contenido-principal) se expande
+       para ocupar el espacio sobrante.
+  */
+  .contenido-principal {
+    flex: 1;
+    /* Puedes añadir un padding o margin si deseas separarlo del footer */
+  }
+
+  /*
+    4. Ajustes para el footer:
+       - No es necesario posicionarlo de forma absoluta
+         si usamos el enfoque de flexbox en body.
+  */
+  .footer_section {
+    background-color: #1288ff; /* Color claro de ejemplo */
+    padding: 20px 0;
+  }
+
+  /* ========================================= */
+  /*          ESTILOS DE LA CUADRÍCULA        */
+  /* ========================================= */
+  .contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    /* Para centrar dentro de la 'container' de Bootstrap */
+    justify-items: center;
+    /* Podrías usar margin: 0 auto; si no estás usando la clase .container */
+  }
+
+  .producto-card {
+    background-color: #eefafe;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 230px;
+    min-height: 170px; /* Altura mínima */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    text-align: center;
+  }
+
+  .producto-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .titulo {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .descripcion {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .ver-detalles {
+    color: purple;
+    font-weight: normal;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .ver-detalles:hover {
+    color: #8a2be2;
+  }
+
+  /*
+    Si quieres que el botón "Volver al Inicio"
+    no se vea tan “Bootstrap por defecto”
+  */
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }

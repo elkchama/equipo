@@ -12,7 +12,7 @@
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img src="vista/img/logo.png" alt="CONFER Logo">
+        <img src="img/logo.png" alt="CONFER Logo">
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Inicio</a></li>

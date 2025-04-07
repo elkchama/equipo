@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class ComparacionController extends Controller
 {
+
     // Método para listar productos y mostrar el formulario de comparación
     public function index()
     {

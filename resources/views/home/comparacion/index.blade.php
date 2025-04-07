@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <title>Comparación de Precios</title>
     <link rel="stylesheet" href="/assets/css/comparacion.css">
@@ -54,7 +55,7 @@
     <span style="left: 70%; animation-delay: 1s;">$</span>
     <span style="left: 90%; animation-delay: 3s;">$</span>
     <span style="left: 90%; animation-delay: 3s;">$</span>
-    
+
   </div>
   <!-- Resto del contenido -->
 </body>

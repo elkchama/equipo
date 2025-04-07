@@ -37,15 +37,16 @@
 
           </ul>
           <div class="right-section">
-            <div class="search">
-              <input type="text" placeholder="Buscar productos" class="search-input">
-              <button type="button" class="search-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </button>
-            </div>
+            <form action="{{ route('search.buscar') }}" method="GET" class="search d-flex">
+                <input type="text" name="query" placeholder="Buscar productos" class="search-input" required>
+                <button type="submit" class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
 
             <a href="login.html" class="login-button">
               <img src="img/user.png" alt="Usuario" class="user-avatar">
@@ -86,7 +87,36 @@
         </div>
       </div>
     </section>
-  </main>
+
+     {{-- RESULTADOS DE BÚSQUEDA AQUÍ --}}
+  @if(request('query'))
+  <div class="container my-5">
+    <h3>Resultados para: "{{ request('query') }}"</h3>
+
+    @if($productos->isEmpty())
+      <p>No se encontraron productos.</p>
+    @else
+      <div class="row">
+        @foreach($productos as $producto)
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ $producto->nombre }}</h5>
+                <p class="card-text">{{ $producto->descripcion }}</p>
+                <p><strong>Precio:</strong> ${{ number_format($producto->precio, 0, ',', '.') }}</p>
+                @if($producto->tienda)
+                  <p><strong>Tienda:</strong> {{ $producto->tienda->nombre }}</p>
+                @endif
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    @endif
+  </div>
+@endif
+
+</main>
 
   <!-- SECCIÓN SOBRE NOSOTROS -->
   <section id="about" class="about_section">

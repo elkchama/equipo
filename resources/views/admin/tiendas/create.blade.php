@@ -32,11 +32,6 @@
                 <input type="url" name="url" id="url" class="form-control">
             </div>
 
-            <div class="mb-3 form-check">
-                <input type="checkbox" name="es_aliada" id="es_aliada" class="form-check-input" value="1">
-                <label for="es_aliada" class="form-check-label">¿Es aliada?</label>
-            </div>
-
             <button type="submit" class="btn btn-primary">Guardar Tienda</button>
             <a href="{{ route('admin.tiendas.index') }}" class="btn btn-secondary">Cancelar</a>
         </form>

@@ -91,7 +91,7 @@
       <nav class="navbar">
         <!-- Logo y marca -->
         <a href="dashboard.html" class="navbar-brand">
-          <img src="/logo.png" alt="CONFER Logo">
+          <img src="img/logo.png" alt="CONFER Logo">
           <span>CONFER</span>
         </a>
         <!-- Contenedor de navegación y búsqueda -->
@@ -112,9 +112,10 @@
               </button>
             </div>
             <a href="login.html" class="login-button">
-              <img src="/user-avatar.png" alt="Usuario" class="user-avatar">
-            </a>
-          </div>
+                <img src="img/user.png" alt="Usuario" class="user-avatar">
+                <div class="text-end px-2">
+                  <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">salir</a>
+                </div>
         </div>
       </nav>
     </div>

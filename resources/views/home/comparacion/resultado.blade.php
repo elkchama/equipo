@@ -13,14 +13,14 @@
           <img src="img/logo.png" alt="CONFER Logo">
           <span>CONFER</span>
         </a>
-        
+
            <!-- Contenedor de navegación y búsqueda -->
         <div class="navbar-collapse">
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ route('productos.index')}}">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="error500.html">Búsquedas recientes</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
-            
+
 
           </ul>
           <div class="right-section">
@@ -51,7 +51,7 @@
     <!-- Botones de navegación -->
     <div class="btn-container">
         <a href="{{ url()->previous() }}" class="btn btn-secondary">Regresar</a>
-        
+
     </div>
 
     <!DOCTYPE html>
@@ -148,7 +148,7 @@
 
     <p>El precio más bajo es: {{ number_format($precioMasBajo, 2, ',', '.') }}</p>
 
-    
+
 </body>
 </html>
 

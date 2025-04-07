@@ -7,17 +7,6 @@
   <link rel="stylesheet" href="/assets/css/tienda.css">
   <link rel="stylesheet" href="tiendas.css">
 
-  <style>
-    .badge-aliada {
-      background-color: gold;
-      color: #000;
-      padding: 3px 6px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      margin-left: 5px;
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
   <!-- HEADER -->
@@ -70,49 +59,42 @@
           'nombre' => 'Éxito',
           'descripcion' => 'Una de las cadenas de tiendas más grandes del país, ofrece productos de todo tipo.',
           'url' => 'https://www.exito.com',
-          'es_aliada' => true,
           'imagen' => 'img/exito.jpg'
         ],
         [
           'nombre' => 'Falabella',
           'descripcion' => 'Retailer reconocido con una amplia gama de productos para el hogar, moda y tecnología.',
           'url' => 'https://www.falabella.com',
-          'es_aliada' => false,
           'imagen' => 'img/falabella.jpg'
         ],
         [
           'nombre' => 'Mercado Libre',
           'descripcion' => 'Plataforma líder de comercio electrónico en Latinoamérica, con millones de productos.',
           'url' => 'https://www.mercadolibre.com.co',
-          'es_aliada' => false,
           'imagen' => 'img/mercado.jpg'
         ],
         [
           'nombre' => 'Linio',
           'descripcion' => 'Popular plataforma de e-commerce que ofrece tecnología, moda y más.',
           'url' => 'https://www.linio.com.co',
-          'es_aliada' => false,
           'imagen' => 'img/linio.jpg'
         ],
         [
           'nombre' => 'Alkosto',
           'descripcion' => 'Gran variedad de productos tecnológicos, electrodomésticos y más, a precios competitivos.',
           'url' => 'https://www.alkosto.com',
-          'es_aliada' => true,
           'imagen' => 'img/alkosto.png'
         ],
         [
           'nombre' => 'Ktronix',
           'descripcion' => 'Especializada en tecnología y electrónica, con amplia selección de gadgets y dispositivos.',
           'url' => 'https://www.ktronix.com',
-          'es_aliada' => false,
           'imagen' => 'img/ktronix.jpg'
         ],
         [
           'nombre' => 'Homecenter',
           'descripcion' => 'Todo para el hogar y la construcción, con ofertas en muebles, herramientas y decoración.',
           'url' => 'https://www.homecenter.com.co',
-          'es_aliada' => false,
           'imagen' => 'img/homecenter.png'
         ]
       ];
@@ -123,10 +105,6 @@
           // Generamos el HTML para cada tienda
           echo '<a href="'.htmlspecialchars($tienda['url']).'" class="store-card" target="_blank">';
           echo '<img src="'.htmlspecialchars($tienda['imagen']).'" alt="Logo '.htmlspecialchars($tienda['nombre']).'">';
-          echo '<h2>'.htmlspecialchars($tienda['nombre']);
-          if ($tienda['es_aliada']) {
-            echo '<span class="badge-aliada">Aliada</span>';
-          }
           echo '</h2>';
           echo '<p>'.htmlspecialchars($tienda['descripcion']).'</p>';
           echo '</a>';

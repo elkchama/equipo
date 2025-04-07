@@ -22,13 +22,6 @@
             <input type="url" class="form-control" id="url" name="url" value="{{ old('url', $tienda->url) }}">
         </div>
 
-        <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="es_aliada" name="es_aliada" value="1" {{ old('es_aliada', $tienda->es_aliada) ? 'checked' : '' }}>
-            <label class="form-check-label" for="es_aliada">
-                Tienda Aliada
-            </label>
-        </div>
-
         <button type="submit" class="btn btn-primary">Actualizar</button>
         <a href="{{ route('admin.tiendas.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
