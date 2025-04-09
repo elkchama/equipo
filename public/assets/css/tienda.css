@@ -286,3 +286,14 @@
 .footer_section .social_links a:hover {
   color: #fff;
 }
+/* Botón de regresar */
+.btn-volver {
+  display: inline-block;
+  margin: 1rem;
+  text-decoration: none;
+  color: #fff;
+  background-color: #fc595b;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  float: left; /* fuerza alineación izquierda */
+}

@@ -47,11 +47,19 @@
   <!-- SECCIÓN TIENDAS -->
   <section class="stores-section">
     <div class="stores-header">
+    <br></br>
+    <br></br>
+   
+    
+    <a href="{{ route('busquedas.index')}}" class="btn-volver">← Volver</a>
       <h1>Tiendas de Colombia</h1>
       <p>Explora las mejores tiendas en línea y físicas de Colombia. Encuentra los productos que necesitas en las plataformas más reconocidas del país.</p>
+      
     </div>
 
     <div class="stores-container">
+    
+
       <?php
       // EJEMPLO: Array con todas las tiendas (podrías obtenerlo de la base de datos)
       $tiendas = [
