@@ -125,12 +125,11 @@
   <a href="{{ route('busquedas.index')}}" class="btn-volver">← Volver</a>
 
   <!-- MAIN CONTENT: Productos con Filtro -->
-  
- <a href="{{ route('busquedas.index')}}" class="btn-volver">← Volver</a>
+
   <main class="products-section">
-  
+
     <div class="container">
-    
+
       <h1 class="section-title">Productos Tecnológicos</h1>
       <p class="section-subtitle" style="text-align:center; margin-bottom: 30px;">Selecciona una categoría para ver los productos</p>
 
@@ -151,35 +150,30 @@
           <img src="vista/img/celular1.jpg" alt="Samsung Galaxy S21">
           <h3>Samsung Galaxy S21</h3>
           <p class="product-store">Éxito</p>
-          <p class="product-price">$1,200,000</p>
           <a href="https://www.exito.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="celulares">
           <img src="vista/img/celular2.jpg" alt="iPhone 13">
           <h3>iPhone 13</h3>
           <p class="product-store">Falabella</p>
-          <p class="product-price">$1,500,000</p>
           <a href="https://www.falabella.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="celulares">
           <img src="vista/img/celular3.jpg" alt="Xiaomi Redmi Note 10">
           <h3>Xiaomi Redmi Note 10</h3>
           <p class="product-store">Mercado Libre</p>
-          <p class="product-price">$800,000</p>
           <a href="https://www.mercadolibre.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="celulares">
           <img src="vista/img/celular4.jpg" alt="Huawei P40">
           <h3>Huawei P40</h3>
           <p class="product-store">Éxito</p>
-          <p class="product-price">$1,100,000</p>
           <a href="https://www.exito.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="celulares">
           <img src="vista/img/celular5.jpg" alt="OnePlus 9">
           <h3>OnePlus 9</h3>
           <p class="product-store">Falabella</p>
-          <p class="product-price">$1,300,000</p>
           <a href="https://www.falabella.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
 
@@ -188,35 +182,30 @@
           <img src="vista/img/computadora1.jpg" alt="Dell XPS 13">
           <h3>Dell XPS 13</h3>
           <p class="product-store">Linio</p>
-          <p class="product-price">$2,200,000</p>
           <a href="https://www.linio.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="computadoras">
           <img src="vista/img/computadora2.jpg" alt="MacBook Air">
           <h3>MacBook Air</h3>
           <p class="product-store">Alkosto</p>
-          <p class="product-price">$3,000,000</p>
           <a href="https://www.alkosto.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="computadoras">
           <img src="vista/img/computadora3.jpg" alt="HP Envy">
           <h3>HP Envy</h3>
           <p class="product-store">Mercado Libre</p>
-          <p class="product-price">$1,900,000</p>
           <a href="https://www.mercadolibre.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="computadoras">
           <img src="vista/img/computadora4.jpg" alt="Lenovo ThinkPad">
           <h3>Lenovo ThinkPad</h3>
           <p class="product-store">Linio</p>
-          <p class="product-price">$2,500,000</p>
           <a href="https://www.linio.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="computadoras">
           <img src="vista/img/computadora5.jpg" alt="Asus ZenBook">
           <h3>Asus ZenBook</h3>
           <p class="product-store">Alkosto</p>
-          <p class="product-price">$2,800,000</p>
           <a href="https://www.alkosto.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
 
@@ -225,35 +214,30 @@
           <img src="vista/img/televisor1.jpg" alt="LG 55OLED">
           <h3>LG 55OLED</h3>
           <p class="product-store">Ktronix</p>
-          <p class="product-price">$2,800,000</p>
           <a href="https://www.ktronix.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="televisores">
           <img src="vista/img/televisor2.jpg" alt="Samsung QLED 65">
           <h3>Samsung QLED 65</h3>
           <p class="product-store">Homecenter</p>
-          <p class="product-price">$3,500,000</p>
           <a href="https://www.homecenter.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="televisores">
           <img src="vista/img/televisor3.jpg" alt="Sony Bravia 55">
           <h3>Sony Bravia 55</h3>
           <p class="product-store">Falabella</p>
-          <p class="product-price">$3,200,000</p>
           <a href="https://www.falabella.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="televisores">
           <img src="vista/img/televisor4.jpg" alt="Philips 50LED">
           <h3>Philips 50LED</h3>
           <p class="product-store">Mercado Libre</p>
-          <p class="product-price">$1,900,000</p>
           <a href="https://www.mercadolibre.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="televisores">
           <img src="vista/img/televisor5.jpg" alt="Panasonic 60">
           <h3>Panasonic 60</h3>
           <p class="product-store">Linio</p>
-          <p class="product-price">$2,600,000</p>
           <a href="https://www.linio.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
 
@@ -262,35 +246,30 @@
           <img src="vista/img/accesorio1.jpg" alt="Audífonos Sony">
           <h3>Audífonos Sony</h3>
           <p class="product-store">Éxito</p>
-          <p class="product-price">$250,000</p>
           <a href="https://www.exito.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="accesorios">
           <img src="vista/img/accesorio2.jpg" alt="Teclado Logitech">
           <h3>Teclado Logitech</h3>
           <p class="product-store">Falabella</p>
-          <p class="product-price">$150,000</p>
           <a href="https://www.falabella.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="accesorios">
           <img src="vista/img/accesorio3.jpg" alt="Mouse Gamer">
           <h3>Mouse Gamer</h3>
           <p class="product-store">Mercado Libre</p>
-          <p class="product-price">$120,000</p>
           <a href="https://www.mercadolibre.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="accesorios">
           <img src="vista/img/accesorio4.jpg" alt="Base Refrigerante">
           <h3>Base Refrigerante</h3>
           <p class="product-store">Linio</p>
-          <p class="product-price">$100,000</p>
           <a href="https://www.linio.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="accesorios">
           <img src="vista/img/accesorio5.jpg" alt="Protector de Pantalla">
           <h3>Protector de Pantalla</h3>
           <p class="product-store">Alkosto</p>
-          <p class="product-price">$80,000</p>
           <a href="https://www.alkosto.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
 
@@ -299,35 +278,30 @@
           <img src="vista/img/audio1.jpg" alt="Bocina JBL">
           <h3>Bocina JBL</h3>
           <p class="product-store">Mercado Libre</p>
-          <p class="product-price">$300,000</p>
           <a href="https://www.mercadolibre.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="audio">
           <img src="vista/img/audio2.jpg" alt="Parlante Bose">
           <h3>Parlante Bose</h3>
           <p class="product-store">Linio</p>
-          <p class="product-price">$450,000</p>
           <a href="https://www.linio.com.co" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="audio">
           <img src="vista/img/audio3.jpg" alt="Auriculares Beats">
           <h3>Auriculares Beats</h3>
           <p class="product-store">Falabella</p>
-          <p class="product-price">$350,000</p>
           <a href="https://www.falabella.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="audio">
           <img src="vista/img/audio4.jpg" alt="Micrófono Rode">
           <h3>Micrófono Rode</h3>
           <p class="product-store">Éxito</p>
-          <p class="product-price">$500,000</p>
           <a href="https://www.exito.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
         <div class="product-card" data-category="audio">
           <img src="vista/img/audio5.jpg" alt="Sistema de Sonido">
           <h3>Sistema de Sonido</h3>
           <p class="product-store">Ktronix</p>
-          <p class="product-price">$650,000</p>
           <a href="https://www.ktronix.com" target="_blank" class="btn btn-primary">Ver producto</a>
         </div>
       </div>
