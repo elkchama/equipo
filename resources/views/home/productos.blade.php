@@ -122,12 +122,15 @@
       </nav>
     </div>
   </header>
+  <a href="{{ route('busquedas.index')}}" class="btn-volver">← Volver</a>
 
   <!-- MAIN CONTENT: Productos con Filtro -->
   
  <a href="{{ route('busquedas.index')}}" class="btn-volver">← Volver</a>
   <main class="products-section">
+  
     <div class="container">
+    
       <h1 class="section-title">Productos Tecnológicos</h1>
       <p class="section-subtitle" style="text-align:center; margin-bottom: 30px;">Selecciona una categoría para ver los productos</p>
 
