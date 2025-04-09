@@ -174,53 +174,67 @@ body {
   right: 30px;   /* Ajusta según el espaciado desde la derecha */
   width: 180px;  /* Ancho del ícono */
   height: 180px; /* Alto del ícono */
-  
+
   /* Imagen de carrito de compras: reemplaza esta URL con otra si lo deseas */
   background: url("https://cdn-icons-png.flaticon.com/512/263/263142.png") no-repeat center / contain;
-  
+
   opacity: 0.9;
   pointer-events: none;
   z-index: 0;
-  
-  /* Animación: se mueve y rota suavemente */
-  animation: moveCart 3s ease-in-out infinite;
-}
 
-/* Definición de la animación */
+ /* Animación: se mueve y rota suavemente */
 @keyframes moveCart {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(10px, -10px) rotate(5deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
   }
-  50% {
-    transform: translate(10px, -10px) rotate(5deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
-/* Pseudo-elemento para el fondo con carritos flotantes */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: url("https://cdn-icons-png.flaticon.com/512/263/263142.png") repeat;
-  /* Ajusta el tamaño de los carritos */
-  background-size: 120px auto;
-  opacity: 0.05; /* Opacidad baja para que sea sutil */
-  z-index: -1; /* Queda detrás de todo el contenido */
-  animation: floatCarts 60s linear infinite;
-}
 
-/* Animación para mover el fondo suavemente */
-@keyframes floatCarts {
-  from {
-    background-position: 0 0;
+  /* Pseudo-elemento para el fondo con carritos flotantes */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url("https://cdn-icons-png.flaticon.com/512/263/263142.png") repeat;
+    background-size: 120px auto;
+    opacity: 0.05;
+    z-index: -1;
+    animation: floatCarts 60s linear infinite;
   }
-  to {
-    background-position: 1000px 1000px;
+
+  /* Animación para mover el fondo suavemente */
+  @keyframes floatCarts {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 1000px 1000px;
+    }
+  }
+
+  /* Estilos para enlaces del menú */
+  .link-nav-clone {
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .link-nav-clone:hover {
+    color: #ccc;
+    transform: translateY(-2px);
   }
 }
-

@@ -15,11 +15,10 @@
         <img src="img/logo.png" alt="CONFER Logo">
       </div>
       <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
         <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
         <li><a href="{{ route('admin.tiendas.index') }}">Tiendas</a></li>
         <li><a href="{{ route('admin.productos.index')}}">Productos</a></li>
-        <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">salir</a>
+        <li><a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">salir</a></li>
       </ul>
     </nav>
   </header>
@@ -149,27 +148,6 @@
     // Crear el gráfico de ventas por tienda
     const storeChart = new Chart(document.getElementById('storeChart'), storeConfig);
   </script>
-
-</body>
-</html>
-      <div class="images-section">
-        <h3>Ventas Recientes</h3>
-        <div class="image-gallery">
-          <div class="image-item">
-            <img src="vista/img/samsung.jpg" alt="Celulares">
-            <p>Celular Samsung S24 ultra 5G</p>
-          </div>
-          <div class="image-item">
-            <img src="vista/img/ps5.jpg" alt="Consolas">
-            <p>Consola PlayStation 5</p>
-          </div>
-          <div class="image-item">
-            <img src="vista/img/auidifonos.jpg" alt="Audífonos">
-            <p>Airpods color rosa crema</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 
   <footer class="footer_section">

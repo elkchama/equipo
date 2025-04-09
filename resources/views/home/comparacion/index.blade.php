@@ -15,6 +15,7 @@
           <img src="img/logo.png" alt="CONFER Logo">
           <span>CONFER</span>
         </a>
+
         <!-- Contenedor de navegación y búsqueda -->
         <div class="navbar-collapse">
           <ul class="navbar-nav">

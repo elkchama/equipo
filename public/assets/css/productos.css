@@ -100,6 +100,23 @@
     transition: color 0.3s ease, transform 0.3s ease;
   }
 
+  .link-nav-clone {
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .link-nav-clone:hover {
+  color: #ccc; /* o el color hover que estés usando en el menú */
+  transform: translateY(-2px); /* efecto sutil de movimiento si deseas */
+}
+
   .nav-item .nav-link:hover {
     color: #ddd;
     transform: translateY(-2px);
