@@ -54,28 +54,39 @@
   <!-- MAIN (Contenedor principal) -->
   <main class="contenido-principal">
     <div class="container my-5">
+      <br></br>
+      <br></br>
+
+      <a href="{{ route('busquedas.index')}}" class="btn-volver">← Volver</a>
       <h2 class="mb-4">Resultados para: "{{ $termino }}"</h2>
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <h5>Resultados encontrados: {{ $productos->count() }}</h5>
+          <br></bar>
+        </div>
+        
 
       @if ($productos->isEmpty())
-        <div class="alert alert-warning">No se encontraron productos para tu búsqueda.</div>
-      @else
-        <!-- Contenedor en Grid para los productos -->
-        <div class="contenedor-productos">
-          @foreach ($productos as $producto)
-            <div class="producto-card">
-              <h5 class="titulo">{{ $producto->nombre }}</h5>
-              <p class="descripcion">
-                Precio: ${{ number_format($producto->precio, 0, ',', '.') }}<br>
-                Tienda: {{ $producto->tienda->nombre ?? 'Sin tienda asignada' }}
-              </p>
-              <a href="#" class="ver-detalles">Ver Detalles</a>
-            </div>
-          @endforeach
-        </div>
-      @endif
+  <div class="alert alert-warning">No se encontraron productos para tu búsqueda.</div>
+@else
+  <div class="contenedor-productos">
+    @foreach ($productos as $producto)
+      <div class="producto-card">
+        <h5 class="titulo">{{ $producto->nombre }}</h5>
+        <p class="descripcion">
+          Precio: ${{ number_format($producto->precio, 0, ',', '.') }}<br>
+          Tienda: {{ $producto->tienda->nombre ?? 'Sin tienda asignada' }}
+        </p>
+        <a href="#" class="ver-detalles">Ver Detalles</a>
+      </div>
+    @endforeach
+  </div>
 
-    </div>
-  </main>
+<div class="boton-comparar-wrapper">
+  <a href="{{ route('comparacion') }}" class="btn-compara">¡COMPARA!</a>
+    <br></br>
+  </div>
+@endif
 
   <!-- FOOTER -->
   <footer class="footer_section">
@@ -88,9 +99,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script src="/js/jquery-3.4.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
 </body>
 </html>
