@@ -20,27 +20,27 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ route('productos.index')}}">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" href="error500.html">Búsquedas recientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
-
+                <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
           </ul>
-          <div class="right-section">
-            <div class="search">
-              <input type="text" placeholder="Buscar productos" class="search-input">
-              <button type="button" class="search-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </button>
-            </div>
 
-            <a href="login.html" class="login-button">
-              <img src="img/user.png" alt="Usuario" class="user-avatar">
-              <div class="text-end px-2">
-                <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">salir</a>
-              </div>
-            </a>
+          <div class="right-section">
+            <form action="{{ route('search.buscar') }}" method="GET" class="search d-flex">
+                <input type="text" name="query" placeholder="Buscar productos" class="search-input" required>
+                <button type="submit" class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <a href="login.html" class="login-button">
+            <img src="img/user.png" alt="Usuario" class="user-avatar">
+          </a>
+            <div class="text-end px-2">
+              <a href="{{ route('logout.perform') }}" class="link-nav-clone">Salir</a>
+            </div>
           </div>
         </div>
       </nav>

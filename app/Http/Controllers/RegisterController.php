@@ -9,28 +9,24 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
-    //
-
-    public function show(){
-        if(Auth::check()){
+    public function show()
+    {
+        if (Auth::check()) {
             return redirect()->route('home.index');
         }
+
         return view('auth.register');
     }
 
-    public function register(RegisterRequest $request){
-
+    public function register(RegisterRequest $request)
+    {
+        // Crear el nuevo usuario con los datos validados
         $user = User::create($request->validated());
-        auth()->login($user);
-        return redirect('/login')->with('success', "Account successfully registered.");
-        /*
-        $user = new User;
-         $user->name = $request->name;
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->setPassword($request->password);
-        $user->save();
-        return redirect('/asdasd')->with('success', "Account successfully registered."); */
 
+        // NO iniciar sesión automáticamente
+        // auth()->login($user); ← esta línea fue eliminada
+
+        // Redirigir al login con mensaje flash
+        return redirect()->route('login.show')->with('success', "Cuenta registrada correctamente. Ahora puedes iniciar sesión.");
     }
 }

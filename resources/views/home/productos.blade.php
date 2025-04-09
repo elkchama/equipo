@@ -124,6 +124,8 @@
   </header>
 
   <!-- MAIN CONTENT: Productos con Filtro -->
+  
+ <a href="{{ route('busquedas.index')}}" class="btn-volver">← Volver</a>
   <main class="products-section">
     <div class="container">
       <h1 class="section-title">Productos Tecnológicos</h1>
