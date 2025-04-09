@@ -28,12 +28,12 @@
           <img src="img/logo.png" alt="CONFER Logo">
           <span>CONFER</span>
         </a>
+
         <!-- Contenedor de navegación y búsqueda -->
         <div class="navbar-collapse">
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="{{ route('productos.index')}}">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" href="error500.html">Búsquedas recientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('productos.index')}}">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
 
           </ul>
           <div class="right-section">
@@ -50,10 +50,10 @@
 
             <a href="login.html" class="login-button">
               <img src="img/user.png" alt="Usuario" class="user-avatar">
-              <div class="text-end px-2">
-                <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">salir</a>
-              </div>
             </a>
+              <div class="text-end px-2">
+                <a href="{{ route('logout.perform') }}" class="link-nav-clone">Salir</a>
+              </div>
           </div>
         </div>
       </nav>
