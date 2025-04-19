@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\{
     RegisterController, LoginController, HomeController, LogoutController,
     BusquedasController, TiendaController, ComparacionController,
@@ -45,7 +46,6 @@ Route::middleware(['guest'])->group(function () {
  */
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
-    Route::resource('fidelizacion', FidelizacionController::class)->except(['show']);
 });
 
 /**
@@ -76,3 +76,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 /* Ruta search */
 Route::get('/buscar', [SearchController::class, 'index'])->name('search.buscar');
 
+Route::middleware(['auth'])
+     ->prefix('admin')
+     ->name('admin.')
+     ->group(function () {
+    Route::resource('productos', ProductosController::class)
+         ->except(['show']);
+    Route::get('productos/pdf', [ProductosController::class, 'generarPDF'])
+         ->name('productos.pdf');
+});

@@ -5,7 +5,13 @@
     <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Dashboard</a>
     <h2>Gestión de Productos</h2>
 
-    <a href="{{ route('admin.productos.create') }}" class="btn btn-primary mb-3">Agregar Producto</a>
+    <div class="mb-3">
+        <a href="{{ route('admin.productos.create') }}" class="btn btn-primary">Agregar Producto</a>
+        <!-- Botón para generar el PDF -->
+        <a href="{{ route('admin.productos.pdf') }}" class="btn btn-success">
+            <i class="fas fa-file-pdf"></i> Generar Reporte PDF
+        </a>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">
@@ -37,7 +43,10 @@
                         <form action="{{ route('admin.productos.destroy', $producto->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">Eliminar</button>
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('¿Seguro que deseas eliminar este producto?');">
+                                Eliminar
+                            </button>
                         </form>
                     </td>
                 </tr>

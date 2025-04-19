@@ -1,4 +1,5 @@
 <?php
+// 📄 CONTROLADOR: app/Http/Controllers/ProductosController.php
 
 namespace App\Http\Controllers;
 
@@ -6,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\productos;
 use App\Models\Tienda;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ProductosController extends Controller
 {
@@ -21,18 +23,12 @@ class ProductosController extends Controller
         return view('admin.productos.index', compact('productos'));
     }
 
-     /**
-     * Muestra el formulario para crear un nuevo producto.
-     */
     public function create()
     {
-        $tiendas = Tienda::all(); // Obtener todas las tiendas para asignarlas a un producto
+        $tiendas = Tienda::all();
         return view('admin.productos.create', compact('tiendas'));
     }
 
-      /**
-     * Almacena un nuevo producto en la base de datos.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -42,24 +38,19 @@ class ProductosController extends Controller
             'tienda_id' => 'required|exists:tiendas,id'
         ]);
 
-        productos::create($request->all());
+        Productos::create($request->all());
 
-        return redirect()->route('admin.productos.index')->with('success', 'Producto creado correctamente.');
+        return redirect()->route('admin.productos.index')
+                         ->with('success', 'Producto creado correctamente.');
     }
 
-     /**
-     * Muestra el formulario de edición de un producto.
-     */
-    public function edit(productos $producto)
+    public function edit(Productos $producto)
     {
         $tiendas = Tienda::all();
         return view('admin.productos.edit', compact('producto', 'tiendas'));
     }
 
-       /**
-     * Actualiza un producto en la base de datos.
-     */
-    public function update(Request $request, productos $producto)
+    public function update(Request $request, Productos $producto)
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
@@ -70,33 +61,41 @@ class ProductosController extends Controller
 
         $producto->update($request->all());
 
-        return redirect()->route('admin.productos.index')->with('success', 'Producto actualizado correctamente.');
+        return redirect()->route('admin.productos.index')
+                         ->with('success', 'Producto actualizado correctamente.');
     }
 
-     /**
-     * Elimina un producto de la base de datos.
-     */
-    public function destroy(productos $producto)
+    public function destroy(Productos $producto)
     {
         $producto->delete();
 
-        return redirect()->route('admin.productos.index')->with('success', 'Producto eliminado correctamente.');
+        return redirect()->route('admin.productos.index')
+                         ->with('success', 'Producto eliminado correctamente.');
     }
 
-    // Función para comparar precios
     public function comparar(Request $request)
     {
         $productoId = $request->input('producto_id');
+        $producto = Productos::where('id', $productoId)
+                            ->with('tienda')
+                            ->get();
 
-        // Buscar el producto y sus precios en diferentes tiendas
-        $producto = productos::where('id', $productoId)->with('tienda')->get();
-
-        // Buscar el precio más bajo
         $mejorPrecio = $producto->min('precio');
-
-        // Encontrar la tienda con el precio más bajo
-        $productoMasEconomico = $producto->where('precio', $mejorPrecio)->first();
+        $productoMasEconomico = $producto->firstWhere('precio', $mejorPrecio);
 
         return view('productos.resultado', compact('productoMasEconomico', 'mejorPrecio'));
+    }
+
+    /**
+     * Generar un PDF con la lista de productos
+     */
+    public function generarPDF()
+    {
+        $productos = Productos::with('tienda')->get();
+
+        $pdf = PDF::loadView('admin.productos.pdf', compact('productos'))
+                  ->setPaper('a4', 'landscape');
+
+        return $pdf->download('productos_tecnologicos.pdf');
     }
 }
