@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tienda;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class TiendaController extends Controller
 {
     /**
@@ -90,4 +90,12 @@ class TiendaController extends Controller
         return redirect()->route('admin.tiendas.index')
                          ->with('success', 'Tienda eliminada correctamente.');
     }
+
+    /** generar pdf con la lista de tiendas  */
+    public function generarPDF()
+{
+    $tiendas = Tienda::all();
+    $pdf = PDF::loadView('admin.tiendas.pdf', compact('tiendas'));
+    return $pdf->download('tiendas.pdf');
+}
 }

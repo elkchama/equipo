@@ -85,3 +85,13 @@ Route::middleware(['auth'])
     Route::get('productos/pdf', [ProductosController::class, 'generarPDF'])
          ->name('productos.pdf');
 });
+
+Route::middleware(['auth'])
+     ->prefix('admin')
+     ->name('admin.')
+     ->group(function () {
+    Route::resource('tiendas', TiendaController::class)
+         ->except(['show']);
+    Route::get('tiendas/pdf', [TiendaController::class, 'generarPDF'])
+         ->name('tiendas.pdf');
+});

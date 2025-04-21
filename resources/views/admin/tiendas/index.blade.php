@@ -5,7 +5,14 @@
     <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Dashboard</a>
     <h1 class="my-4">Lista de Tiendas</h1>
 
+    <div class="mb-3">
+        <!-- Botón para generar el PDF -->
+        <a href="{{ route('admin.tiendas.pdf') }}" class="btn btn-success">
+            <i class="fas fa-file-pdf"></i> Generar Reporte PDF
+        </a>
+    </div>
     <a href="{{ route('admin.tiendas.create') }}" class="btn btn-primary mb-3">Agregar Tienda</a>
+
 
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
