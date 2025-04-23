@@ -3,6 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/assets/css/resultado.css">
+    <title>Resultado de Comparación</title>
+    <style>
+        /* Estilos básicos para la tabla */
+        body {
+            background: #e4e4e4;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+          font-size: 2.8rem;
+           font-weight: bold;
+           text-align: center;
+          margin-bottom: 20px;
+
+         /* Multicolor degradado aplicado al texto */
+          background: linear-gradient(90deg,rgb(12, 48, 133),rgb(157, 20, 87),rgb(186, 45, 26),rgb(14, 101, 125));
+          background-size: 300% 300%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+         animation: h1Gradient 5s ease infinite;
+        }
+
+        @keyframes h1Gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4caf50;
+            color:rgb(255, 255, 255);
+        }
+        tr:nth-child(even) td {
+            background-color: #f7f7f7;
+        }
+        tr:hover td {
+            background-color: #e0f7fa;
+        }
+        /* Resaltar la fila del precio más bajo */
+        .precio-bajo {
+            background-color: #b2dfdb !important;
+            font-weight: bold;
+        }
+        p {
+            text-align: center;
+            font-size: 3.1rem;
+            color: #094166;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-pdf {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
 </head>
 <!-- HEADER -->
 <header class="header" id="mainHeader">
@@ -19,7 +100,6 @@
           <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ route('productos.index')}}">Productos</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('tiendas') }}">Tiendas</a></li>
-
           </ul>
           <div class="right-section">
             <form action="{{ route('search.buscar') }}" method="GET" class="search d-flex">
@@ -50,77 +130,8 @@
     <!-- Botones de navegación -->
     <div class="btn-container">
         <a href="{{ url()->previous() }}" class="btn btn-secondary">Regresar</a>
-
+        <a href="{{ route('comparacion.pdf') }}" class="btn btn-pdf">Generar PDF</a>
     </div>
-
-    <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Resultado de Comparación</title>
-    <link rel="stylesheet" href="{{ asset('css/resultado.css') }}">
-    <style>
-        /* Estilos básicos para la tabla */
-        body {
-            background: #e4e4e4;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        h1 {
-          font-size: 2.8rem;
-           font-weight: bold;
-           text-align: center;
-          margin-bottom: 20px;
-
-         /* Multicolor degradado aplicado al texto */
-          background: linear-gradient(90deg,rgb(12, 48, 133),rgb(157, 20, 87),rgb(186, 45, 26),rgb(14, 101, 125));
-          background-size: 300% 300%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-         animation: h1Gradient 5s ease infinite;
-        }
-
-@keyframes h1Gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-        table {
-            width: 80%;
-            margin: 0 auto 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #4caf50;
-            color:rgb(255, 255, 255);
-        }
-        tr:nth-child(even) td {
-            background-color: #f7f7f7;
-        }
-        tr:hover td {
-            background-color: #e0f7fa;
-        }
-        /* Resaltar la fila del precio más bajo */
-        .precio-bajo {
-            background-color: #b2dfdb !important;
-            font-weight: bold;
-        }
-        p {
-            text-align: cente;
-            font-size: 3.1rem;
-            color: #094166;
-        }
-    </style>
-</head>
-<body>
-    <h1>Resultado de Comparación</h1>
 
     <table>
         <thead>
@@ -146,8 +157,5 @@
     </table>
 
     <p>El precio más bajo es: {{ number_format($precioMasBajo, 2, ',', '.') }}</p>
-
-
 </body>
 </html>
-

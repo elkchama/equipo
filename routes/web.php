@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     FidelizacionController, UserController, ProductosController, DashboardController,
     SearchController
 };
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +59,9 @@ Route::resource('busquedas', BusquedasController::class);
  */
 Route::get('/comparacion', [ComparacionController::class, 'index'])->name('comparacion');
 Route::post('/comparar', [ComparacionController::class, 'comparar'])->name('comparar');
+Route::get('/comparacion/pdf', [ComparacionController::class, 'generarPDF'])
+    ->name('comparacion.pdf')
+    ->middleware('auth'); // Protegemos la generación de PDFs
 
 /**
  * Dashboard del Administrador
